@@ -2,7 +2,7 @@
 public class TESTER {
     public static void main(String[] args) {
 
-        ArrayListWithoutCapicity list = new ArrayListWithoutCapicity();
+        ArrayListWithCapicity list = new ArrayListWithCapicity(4);
 
         String hej = "Hej";
         int m = 6;
@@ -13,18 +13,33 @@ public class TESTER {
         int mlk = 65;
         char znakB = 'b';
 
+        list.add(hej);
         list.add(elo);
-        list.add(0, znakB);
         list.add(0, znakA);
+        list.add(2, znakB);
+        list.add(hej);
         list.add(elo);
+        list.add(0, znakA);
+        list.add(2, znakB);
+
+
+        System.out.println("Size: " + list.size());
+        System.out.println("Empty?: " + list.isEmpty());
         list.show();
 
-        System.out.println(list.lastIndexOf(znakB));
-        System.out.println(list.indexOf(hej));
+        System.out.println("First: " + list.indexOf(hej));
+        System.out.println("Last: " + list.lastIndexOf(hej));
+        System.out.println("\n");
+        System.out.println("Contains: " + list.contains(mk));
+        System.out.println("Contains: " + list.contains(znakA));
+        System.out.println(list.size());
 
-        list.set(3, hej);
+        list.removeIndex(0);
+        list.remove(hej);
+        System.out.println("\n");
+
         list.show();
-        System.out.println(list.lastIndexOf(znakB));
-        System.out.println(list.indexOf(hej));
+        list.clear();
+        System.out.println("Empty?: " + list.isEmpty());
     }
 }

@@ -148,9 +148,10 @@ public class ArrayListWithoutCapicity<E> implements List<E> {
 
     @Override
     public E get(int index) {
-        if(tab == null) throw new NullPointerException();
+        if (tab == null) throw new NullPointerException();
         return tab[index];
     }
+
 
 
 }
