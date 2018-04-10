@@ -12,6 +12,7 @@ public class ToQuickSort {
 
     private ArrayList<Integer> elements;
 
+
     //konstruktor wczytuje dane z pliku do listy
     public ToQuickSort(String nameOfTheFile) {
         elements = new ArrayList<Integer>();
@@ -55,22 +56,22 @@ public class ToQuickSort {
             System.out.println("The List is empty!");
             return;
         }
-        quickSort(elements, 0, elements.size() - 1, version);
+        quickSort(0, elements.size() - 1, version);
 
     }
 
     //Może trochę przekombinowane, ale dobrze czasami sobie coś przypomnieć, w tym przypadku mapy
-    public int findMedianOfThreeElements(ArrayList<Integer> list, int left, int right) {
+    public int findMedianOfThreeElements(int left, int right) {
         HashMap<Integer, Integer> newMap = new HashMap<Integer, Integer>();
         ArrayList<Integer> newList = new ArrayList<Integer>();
 
-        newList.add(list.get(left));
-        newList.add(list.get((int) Math.floor((left + (right - left)) / 2)));
-        newList.add(list.get(right));
+        newList.add(elements.get(left));
+        newList.add(elements.get((int) Math.floor((left + (right - left)) / 2)));
+        newList.add(elements.get(right));
 
-        newMap.put(list.get(left), left);
-        newMap.put(list.get((int) Math.floor((left + (right - left)) / 2)), (int) Math.floor((left + (right - left)) / 2));
-        newMap.put(list.get(right), right);
+        newMap.put(elements.get(left), left);
+        newMap.put(elements.get((int) Math.floor((left + (right - left)) / 2)), (int) Math.floor((left + (right - left)) / 2));
+        newMap.put(elements.get(right), right);
 
         // lista newList jest sortowana za pomocą bubbleSort, mediana 3 elementów ustawi się na srodku listy
         boolean t = true;
@@ -93,7 +94,7 @@ public class ToQuickSort {
     }
 
     //rozpatruje wybranie indexu pivota na podstawie trzech wersji, zwraca jego index
-    public int selectPivot(ArrayList<Integer> list, int left, int right, int version) {
+    public int selectPivot(int left, int right, int version) {
         int index0fPivot;
         switch (version) {
 
@@ -106,7 +107,7 @@ public class ToQuickSort {
 
             //ustawia index pivota na losowej pozycji z przediału
 
-            case 1:
+            case 2:
 
                 int index = right;
                 int pP = ThreadLocalRandom.current().nextInt(left, right);
@@ -117,21 +118,21 @@ public class ToQuickSort {
 
             //ustawia pivot na pozycji mediany trzech elementów (pierwszy, środkowy, ostatni)
 
-            case 2:
-                index0fPivot = findMedianOfThreeElements(list, left, right);
+            case 3:
+                index0fPivot = findMedianOfThreeElements(left, right);
                 break;
         }
         return index0fPivot;
 
     }
 
-    private int partinion(ArrayList<Integer> list, int left, int right, int version) {
+    private int partinion(int left, int right, int version) {
 
         //wyznacza pivot wedłóg podanej wersji i zamienia go z ostatnim indexem
-        Collections.swap(list, selectPivot(list, left, right, version), right);
+        Collections.swap(elements, selectPivot(left, right, version), right);
 
         //pivot przyjmuje wartość ostatniego elementu po prawej stronie
-        int pivot = list.get(right);
+        int pivot = elements.get(right);
         int border = left - 1;
         int i = left;
 
@@ -143,10 +144,10 @@ public class ToQuickSort {
             zamieniony z tym obiektem
              */
 
-            if (list.get(i) < pivot) {
+            if (elements.get(i) < pivot) {
                 border++;
                 if (border != i) {
-                    Collections.swap(list, border, i);
+                    Collections.swap(elements, border, i);
                 }
             }
             i++;
@@ -160,19 +161,19 @@ public class ToQuickSort {
 
         border++;
         if (border != right) {
-            Collections.swap(list, border, right);
+            Collections.swap(elements, border, right);
         }
         return border;
     }
 
     //główna metoda na quick sort
-    public void quickSort(ArrayList<Integer> list, int left, int right, int version) {
+    public void quickSort(int left, int right, int version) {
 
         //kończy wykonywanie metody w momencie kiedy pivot będzie porównywany z samym sobą
         if (left >= right) return;
 
         //wywołanie metody patition, dzieli na mniejsze problemy i ustawia pivot na właściwym miejscu
-        int border = partinion(list, left, right, version);
+        int border = partinion(left, right, version);
 
         /*
         rekurencyje wywołąnie kolejnych metod quickSort, dla tej samej listy, lecz ze
@@ -180,8 +181,8 @@ public class ToQuickSort {
         problem został podzielony na podproblemy
         */
 
-        quickSort(list, left, border - 1, version);
-        quickSort(list, border + 1, right, version);
+        quickSort(left, border - 1, version);
+        quickSort(border + 1, right, version);
     }
 
     //TODO w wypadku, gdy w jednej linni przedział jest nie czytelny nalęzy skalować cało
@@ -197,9 +198,9 @@ public class ToQuickSort {
         int element = 0; //służy za licznik
 
 
-            // jeżeli liczba przedziałów jest większa niż połowa maksymalnej
-            // wartości i mnjesza od 3/4 tego elementu to automatycznie ilość
-            // zakresów wynosi 2
+        // jeżeli liczba przedziałów jest większa niż połowa maksymalnej
+        // wartości i mnjesza od 3/4 tego elementu to automatycznie ilość
+        // zakresów wynosi 2
         if (numberOfRanges > theHighestElement / 2 && numberOfRanges < (theHighestElement / 4) * 3) {
             range = 2;
 

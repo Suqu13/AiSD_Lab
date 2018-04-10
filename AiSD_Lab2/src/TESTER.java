@@ -7,7 +7,7 @@ public class TESTER {
         //default - pivot to otsatni element
         //1 - pivot losowy element
         //2 - pivot to mediana z trzech elemnetów (pierwszy, środkowy, ostatni)
-        dane_1.sort(2);
+        dane_1.sort(3);
 
         //System.out.println("\nLiczba elementów: " + dane_1.getSize());
         System.out.println("\nMediana: " + dane_1.showMediana());
