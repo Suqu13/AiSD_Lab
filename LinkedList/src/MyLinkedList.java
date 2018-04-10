@@ -1,7 +1,12 @@
 public class MyLinkedList<T> implements LinkedList<T> {
 
     private class Element {
+        /*
+        next- information about next element
+        previous- information about previous element
+        value- current value
 
+        */
         Element next;
         Element previous;
         T value;
@@ -41,6 +46,11 @@ public class MyLinkedList<T> implements LinkedList<T> {
 
     Element head = new Element();
 
+    /*
+    This method adds the new element to the linkedlist. It considers two options, when the linkedlist is empty and when there is
+    some elements.
+     */
+
     @Override
     public void add(T ob) {
         Element newElement = new Element(ob);
@@ -49,6 +59,7 @@ public class MyLinkedList<T> implements LinkedList<T> {
             head.setNext(newElement);
         } else {
             Element eL = head;
+            // this loop is searching for the last element in the linkedlist
             while (eL.getNext() != null) {
                 eL = eL.getNext();
             }
@@ -57,6 +68,11 @@ public class MyLinkedList<T> implements LinkedList<T> {
             eL.setNext(newElement);
         }
     }
+
+    /*
+    This method adds the new element in the specified list index. It has to check if the index is correct and
+    consider two option. If the index is equal to the size of the list, we can use previous method (add).
+     */
 
     @SuppressWarnings("Duplicates")
     @Override
@@ -69,13 +85,13 @@ public class MyLinkedList<T> implements LinkedList<T> {
         Element newElement = new Element(ob);
         Element eL = head;
         int i = 0;
+        // this loop is searching for the right index, counting elements and comparing counter to index
         while (eL.getNext() != null) {
             if (index == i) {
-                Element eL_1 = eL.getNext();
-                eL.setNext(newElement);
+                newElement.setNext(eL.getNext());
                 newElement.setPrevious(eL);
-                newElement.setNext(eL_1);
-                eL_1.setPrevious(newElement);
+                eL.getNext().setPrevious(newElement);
+                eL.setNext(newElement);
                 return;
             }
             eL = eL.getNext();
@@ -83,28 +99,45 @@ public class MyLinkedList<T> implements LinkedList<T> {
         }
     }
 
+    /*
+    Adds the new element on the first place in the linkedlist. Chooses one option, when the linkedlist is empty,
+    or has some elements
+     */
     @SuppressWarnings("Duplicates")
     @Override
     public void addFirst(T ob) {
         Element newElement = new Element(ob);
+        newElement.setPrevious(head);
         if (head.getNext() == null) {
-            head.setNext(newElement);
-            newElement.setPrevious(head);
             newElement.setNext(null);
         } else {
-            Element eL_1 = head.getNext();
-            head.setNext(newElement);
-            newElement.setPrevious(head);
-            newElement.setNext(eL_1);
-            eL_1.setPrevious(newElement);
+            newElement.setNext(head.getNext());
+            head.getNext().setPrevious(newElement);
         }
+        head.setNext(newElement);
     }
 
+    /*
+    It sets the new value of the element on the specified index
+     */
     @Override
     public void set(int index, T ob) throws IndexOutOfBoundsException {
-
+        if (index < 0 || index > size() - 1) throw new IndexOutOfBoundsException();
+        Element eL = head.getNext();
+        int i = 0;
+        //the loop is finding the element with the specified index
+        while (eL != null) {
+            if (index == i) {
+                eL.setValue(ob);
+                return;
+            }
+            eL = eL.getNext();
+            i++;
+        }
     }
-
+    /*
+    makes the linkedlist empty/ clear
+     */
     @Override
     public void clear() {
         head.getNext().setPrevious(null);
@@ -124,11 +157,11 @@ public class MyLinkedList<T> implements LinkedList<T> {
     @Override
     public T get(int index) throws IndexOutOfBoundsException {
         if (index < 0 || index > size() - 1) throw new IndexOutOfBoundsException();
-        Element eL = head;
+        Element eL = head.getNext();
         int i = 0;
-        while (eL.getNext() != null) {
+        while (eL != null) {
             if (index == i) {
-                return eL.getNext().getValue();
+                return eL.getValue();
             }
             eL = eL.getNext();
             i++;
@@ -189,22 +222,20 @@ public class MyLinkedList<T> implements LinkedList<T> {
         int i = 0;
         while (eL.getNext() != null) {
             eL = eL.getNext();
-            if (i == size() - 1) {
-                eL.getPrevious().setNext(null);
-                eL.setPrevious(null);
-                eL.setNext(null);
-                break;
-            }
             if (index == i) {
-                eL.getPrevious().setNext(eL.getNext());
-                eL.getNext().setPrevious(eL.getPrevious());
+                if (i == size() - 1) {
+                    eL.getPrevious().setNext(null);
+                } else {
+                    eL.getPrevious().setNext(eL.getNext());
+                    eL.getNext().setPrevious(eL.getPrevious());
+                }
                 eL.setPrevious(null);
                 eL.setNext(null);
-                break;
+                return eL.getValue();
             }
             i++;
         }
-        return eL.getValue();
+        return null;
     }
 
     @Override
@@ -215,20 +246,16 @@ public class MyLinkedList<T> implements LinkedList<T> {
             if (ob.equals(eL.getValue())) {
                 if (eL.getNext() == null) {
                     eL.getPrevious().setNext(null);
-                    eL.setNext(null);
-                    eL.setPrevious(null);
-                    break;
                 } else {
                     eL.getPrevious().setNext(eL.getNext());
                     eL.getNext().setPrevious(eL.getPrevious());
-                    eL.setNext(null);
-                    eL.setPrevious(null);
-                    break;
                 }
+                eL.setNext(null);
+                eL.setPrevious(null);
+                return eL.getValue();
             }
-
         }
-        return eL.getValue();
+        return null;
     }
 
     @Override

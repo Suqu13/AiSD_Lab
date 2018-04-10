@@ -4,7 +4,7 @@ public class TESTER {
     public static void main(String[] args) {
 
         MyLinkedList linkedList = new MyLinkedList();
-        ArrayList list =  new ArrayList();
+        ArrayList list = new ArrayList();
 
         String q = "kara";
         String s = "nazwa";
@@ -18,6 +18,13 @@ public class TESTER {
         linkedList.add(q);
         linkedList.add(z);
         linkedList.add(w);
+        linkedList.add(2, d);
+
+        System.out.println("\n");
+
+        System.out.println("1");
+        System.out.println(linkedList.get(2));
+        System.out.println(linkedList.get(3));
 
         System.out.println("\n");
 
@@ -25,8 +32,16 @@ public class TESTER {
 
         System.out.println("\n");
 
-       // System.out.println(linkedList.removeFirst());
+        linkedList.set(0, q);
+        linkedList.set(4, z);
+
+        linkedList.show();
+
+        System.out.println("\n");
+
+        // System.out.println(linkedList.removeFirst());
         System.out.println(linkedList.removeLast());
+        System.out.println(linkedList.remove(2));
 
         System.out.println("\n");
 
