@@ -1,96 +1,126 @@
-
+import javax.print.attribute.SetOfIntegerSyntax;
+import java.util.ArrayList;
+import java.util.Calendar;
 
 public class TESTER {
     public static void main(String[] args) throws EmptyStackException {
 
         System.out.println("\n");
 
-        ToQuickSort dane_11 = new ToQuickSort("z3data11.csv");
-        System.out.println("Nazwa pliku: " + dane_11.getNameFile());
-        dane_11.quickSort(1);
-        dane_11.showTheSelectedVersion();
-        System.out.println("Liczebność: " + dane_11.size());
-        System.out.println("Całkowita liczba zamian miejscami elementów zbioru: " + dane_11.getSwapPlaces());
-        System.out.println("Maksymalna zarejstrowana wysokokść stosu: " + dane_11.getMaximumStackHeight());
+
+        //TODO OPTYMALIZUJ, NIECH QUICKSORT ZACZNIE OD NAJMNIEJSZEGO PRZEDZIAŁU
+
+        ArrayList<ToQuickSort> list = new ArrayList<>();
+
+        ToQuickSort dane_11_P1 = new ToQuickSort("z3data11.csv");
+        dane_11_P1.quickSort(1);
+        list.add(dane_11_P1);
+        ToQuickSort dane_11_P2 = new ToQuickSort("z3data11.csv");
+        dane_11_P2.quickSort(2);
+        list.add(dane_11_P2);
+        ToQuickSort dane_11_P3 = new ToQuickSort("z3data11.csv");
+        dane_11_P3.quickSort(3);
+        list.add(dane_11_P3);
+
+        ToQuickSort dane_21_P1 = new ToQuickSort("z3data21.csv");
+        dane_21_P1.quickSort(1);
+        list.add(dane_21_P1);
+        ToQuickSort dane_21_P2 = new ToQuickSort("z3data21.csv");
+        dane_21_P2.quickSort(2);
+        list.add(dane_21_P2);
+        ToQuickSort dane_21_P3 = new ToQuickSort("z3data21.csv");
+        dane_21_P3.quickSort(3);
+        list.add(dane_21_P3);
+
+        ToQuickSort dane_31_P1 = new ToQuickSort("z3data31.csv");
+        dane_31_P1.quickSort(1);
+        list.add(dane_31_P1);
+        ToQuickSort dane_31_P2 = new ToQuickSort("z3data31.csv");
+        dane_31_P2.quickSort(2);
+        list.add(dane_31_P2);
+        ToQuickSort dane_31_P3 = new ToQuickSort("z3data31.csv");
+        dane_31_P3.quickSort(3);
+        list.add(dane_31_P3);
+
+        ToQuickSort dane_12_P1 = new ToQuickSort("z3data12.csv");
+        dane_12_P1.quickSort(1);
+        list.add(dane_12_P1);
+        ToQuickSort dane_12_P2 = new ToQuickSort("z3data12.csv");
+        dane_12_P2.quickSort(2);
+        list.add(dane_12_P2);
+        ToQuickSort dane_12_P3 = new ToQuickSort("z3data12.csv");
+        dane_12_P3.quickSort(3);
+        list.add(dane_12_P3);
+
+        ToQuickSort dane_22_P1 = new ToQuickSort("z3data22.csv");
+        dane_22_P1.quickSort(1);
+        list.add(dane_22_P1);
+        ToQuickSort dane_22_P2 = new ToQuickSort("z3data22.csv");
+        dane_22_P2.quickSort(2);
+        list.add(dane_22_P2);
+        ToQuickSort dane_22_P3 = new ToQuickSort("z3data22.csv");
+        dane_22_P3.quickSort(3);
+        list.add(dane_22_P3);
+
+        ToQuickSort dane_32_P1 = new ToQuickSort("z3data32.csv");
+        dane_32_P1.quickSort(1);
+        list.add(dane_32_P1);
+        ToQuickSort dane_32_P2 = new ToQuickSort("z3data32.csv");
+        dane_32_P2.quickSort(2);
+        list.add(dane_32_P2);
+        ToQuickSort dane_32_P3 = new ToQuickSort("z3data32.csv");
+        dane_32_P3.quickSort(3);
+        list.add(dane_32_P3);
+
+        ToQuickSort dane_13_P1 = new ToQuickSort("z3data13.csv");
+        dane_13_P1.quickSort(1);
+        list.add(dane_13_P1);
+        ToQuickSort dane_13_P2 = new ToQuickSort("z3data13.csv");
+        dane_13_P2.quickSort(2);
+        list.add(dane_13_P2);
+        ToQuickSort dane_13_P3 = new ToQuickSort("z3data13.csv");
+        dane_13_P3.quickSort(3);
+        list.add(dane_13_P3);
+
+        ToQuickSort dane_23_P1 = new ToQuickSort("z3data23.csv");
+        dane_23_P1.quickSort(1);
+        list.add(dane_23_P1);
+        ToQuickSort dane_23_P2 = new ToQuickSort("z3data23.csv");
+        dane_23_P2.quickSort(2);
+        list.add(dane_23_P2);
+        ToQuickSort dane_23_P3 = new ToQuickSort("z3data23.csv");
+        dane_23_P3.quickSort(3);
+        list.add(dane_23_P3);
+
+        ToQuickSort dane_33_P1 = new ToQuickSort("z3data33.csv");
+        dane_33_P1.quickSort(1);
+        list.add(dane_33_P1);
+        ToQuickSort dane_33_P2 = new ToQuickSort("z3data33.csv");
+        dane_33_P2.quickSort(2);
+        list.add(dane_33_P2);
+        ToQuickSort dane_33_P3 = new ToQuickSort("z3data33.csv");
+        dane_33_P3.quickSort(3);
+        list.add(dane_33_P3);
+
+        System.out.println("LZM - całkowita liczba zamian miejscami");
+        System.out.println("MWS - maksymalna liczebność stosu");
+        System.out.println(" ");
+        System.out.println("Sposób doboru pivotu: ");
+        System.out.println("P1 - ostatni element z zadanego przedziału");
+        System.out.println("P2 - losowy element z zadanego przedziału");
+        System.out.println("P3 - mediana trzech elementów należących do zadanego przedziału (pierwszy, środkowy, ostatni)");
+
 
         System.out.println("\n");
 
-        ToQuickSort dane_21 = new ToQuickSort("z3data21.csv");
-        System.out.println("Nazwa pliku: " + dane_21.getNameFile());
-        dane_21.quickSort(2);
-        dane_21.showTheSelectedVersion();
-        System.out.println("Liczebność: " + dane_21.size());
-        System.out.println("Całkowita liczba zamian miejscami elementów zbioru: " + dane_21.getSwapPlaces());
-        System.out.println("Maksymalna zarejstrowana wysokokść stosu: " + dane_21.getMaximumStackHeight());
+        System.out.printf("%-15s %10s %10s %10s %10s\n", "Nazwa pliku ", "Liczebność", "Pivot", "LZM", " MWS");
+        String name = "name";
+        for (ToQuickSort TQS : list) {
+            if (name != TQS.getNameFile()) System.out.println(" ");
+            System.out.printf("%-15s %10d %10s %10d %10d\n", TQS.getNameFile(), TQS.size(), TQS.showTheSelectedVersion(), TQS.getSwapPlaces(), TQS.getMaximumStackHeight());
+            name = TQS.getNameFile();
+        }
 
-        System.out.println("\n");
 
-        ToQuickSort dane_31 = new ToQuickSort("z3data31.csv");
-        System.out.println("Nazwa pliku: " + dane_31.getNameFile());
-        dane_31.quickSort(3);
-        dane_31.showTheSelectedVersion();
-        System.out.println("Liczebność: " + dane_31.size());
-        System.out.println("Całkowita liczba zamian miejscami elementów zbioru: " + dane_31.getSwapPlaces());
-        System.out.println("Maksymalna zarejstrowana wysokokść stosu: " + dane_31.getMaximumStackHeight());
-
-        System.out.println("\n");
-
-        ToQuickSort dane_12 = new ToQuickSort("z3data12.csv");
-        System.out.println("Nazwa pliku: " + dane_12.getNameFile());
-        dane_12.quickSort(1);
-        dane_12.showTheSelectedVersion();
-        System.out.println("Liczebność: " + dane_12.size());
-        System.out.println("Całkowita liczba zamian miejscami elementów zbioru: " + dane_12.getSwapPlaces());
-        System.out.println("Maksymalna zarejstrowana wysokokść stosu: " + dane_12.getMaximumStackHeight());
-
-        System.out.println("\n");
-
-        ToQuickSort dane_22 = new ToQuickSort("z3data22.csv");
-        System.out.println("Nazwa pliku: " + dane_22.getNameFile());
-        dane_22.quickSort(2);
-        dane_22.showTheSelectedVersion();
-        System.out.println("Liczebność: " + dane_22.size());
-        System.out.println("Całkowita liczba zamian miejscami elementów zbioru: " + dane_22.getSwapPlaces());
-        System.out.println("Maksymalna zarejstrowana wysokokść stosu: " + dane_22.getMaximumStackHeight());
-
-        System.out.println("\n");
-
-        ToQuickSort dane_32 = new ToQuickSort("z3data32.csv");
-        System.out.println("Nazwa pliku: " + dane_32.getNameFile());
-        dane_32.quickSort(3);
-        dane_32.showTheSelectedVersion();
-        System.out.println("Liczebność: " + dane_32.size());
-        System.out.println("Całkowita liczba zamian miejscami elementów zbioru: " + dane_32.getSwapPlaces());
-        System.out.println("Maksymalna zarejstrowana wysokokść stosu: " + dane_32.getMaximumStackHeight());
-
-        System.out.println("\n");
-
-        ToQuickSort dane_13 = new ToQuickSort("z3data13.csv");
-        System.out.println("Nazwa pliku: " + dane_13.getNameFile());
-        dane_13.quickSort(1);
-        dane_13.showTheSelectedVersion();
-        System.out.println("Liczebność: " + dane_13.size());
-        System.out.println("Całkowita liczba zamian miejscami elementów zbioru: " + dane_13.getSwapPlaces());
-        System.out.println("Maksymalna zarejstrowana wysokokść stosu: " + dane_13.getMaximumStackHeight());
-
-        System.out.println("\n");
-
-        ToQuickSort dane_23 = new ToQuickSort("z3data23.csv");
-        System.out.println("Nazwa pliku: " + dane_23.getNameFile());
-        dane_23.quickSort(2);
-        dane_23.showTheSelectedVersion();
-        System.out.println("Liczebność: " + dane_23.size());
-        System.out.println("Całkowita liczba zamian miejscami elementów zbioru: " + dane_23.getSwapPlaces());
-        System.out.println("Maksymalna zarejstrowana wysokokść stosu: " + dane_23.getMaximumStackHeight());
-
-        System.out.println("\n");
-
-        ToQuickSort dane_33 = new ToQuickSort("z3data33.csv");
-        System.out.println("Nazwa pliku: " + dane_33.getNameFile());
-        dane_33.quickSort(3);
-        dane_33.showTheSelectedVersion();
-        System.out.println("Liczebność: " + dane_33.size());
-        System.out.println("Całkowita liczba zamian miejscami elementów zbioru: " + dane_33.getSwapPlaces());
-        System.out.println("Maksymalna zarejstrowana wysokokść stosu: " + dane_33.getMaximumStackHeight());
     }
 }

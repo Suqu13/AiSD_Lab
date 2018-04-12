@@ -144,6 +144,7 @@ public class ToQuickSort {
         maximumStackHeight = stack.maximumStackHeight();
 
         while (!stack.isEmpty()) {
+
             left = stack.pop();
             right = stack.pop();
 
@@ -163,13 +164,16 @@ public class ToQuickSort {
             stack.push(border + 1);
             maximumStackHeight = stack.maximumStackHeight();
 
+
+
         }
     }
 
-    public void showTheSelectedVersion(){
-        if (version == 1) System.out.println("Pivot został wybrany jako ostatni element z zadanego przedziału.");
-        if (version == 2) System.out.println("Pivot został wybrany losowo z zadanego przedziału.");
-        if (version == 3) System.out.println("Pivot został wybrany jako mediana trzech elementów należących do zadanego przedziału (pierwszy, środkowy, ostatni).");
+    public String showTheSelectedVersion() {
+        if (version == 1) return "P1";
+        if (version == 2) return "P2";
+        if (version == 3) return "P3";
+            return null;
     }
 
     public double showMediana() {
