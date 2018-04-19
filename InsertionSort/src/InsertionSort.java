@@ -19,6 +19,7 @@ public class InsertionSort {
                     list.add(Integer.parseInt(tab[i]));
                 }
             }
+            reader.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
