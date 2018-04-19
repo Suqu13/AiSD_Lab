@@ -7,9 +7,6 @@ public class TESTER {
 
         System.out.println("\n");
 
-
-        //TODO OPTYMALIZUJ, NIECH QUICKSORT ZACZNIE OD NAJMNIEJSZEGO PRZEDZIAŁU
-
         ArrayList<ToQuickSort> list = new ArrayList<>();
 
         ToQuickSort dane_11_P1 = new ToQuickSort("z3data11.csv");
@@ -101,6 +98,7 @@ public class TESTER {
         ToQuickSort dane_33_P3 = new ToQuickSort("z3data33.csv");
         dane_33_P3.quickSort(3);
         list.add(dane_33_P3);
+
 
         System.out.println("LZM - całkowita liczba zamian miejscami");
         System.out.println("MWS - maksymalna liczebność stosu");

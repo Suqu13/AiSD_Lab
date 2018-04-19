@@ -44,6 +44,7 @@ public class ToQuickSort {
                     elements.add(Integer.parseInt(tab[i]));
                 }
             }
+            reader.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -56,7 +57,7 @@ public class ToQuickSort {
         System.out.println(" ");
     }
 
-    public int medianOfThreeElements(int left, int right) {
+    private int medianOfThreeElements(int left, int right) {
 
         HashMap<Integer, Integer> newMap = new HashMap<Integer, Integer>();
         ArrayList<Integer> newList = new ArrayList<Integer>();
@@ -93,7 +94,7 @@ public class ToQuickSort {
 
             case 2:
                 futurePivotIndex = right;
-                int index = ThreadLocalRandom.current().nextInt(left, right);
+                int index = ThreadLocalRandom.current().nextInt(left, right + 1);
                 if (index > left && index < right) futurePivotIndex = index;
                 break;
 
@@ -157,6 +158,10 @@ public class ToQuickSort {
 
             border = partition(left, right, version);
 
+
+            /*
+            Optymalizacja, węższy przedział pierwszy rozpatrywany
+            */
             if (Math.abs((border - 1) - left) >= Math.abs(right - (border + 1))) {
 
                 stack.push(border - 1);
