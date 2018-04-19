@@ -26,9 +26,11 @@ public class ToQuickSort {
                     elements.add(Integer.parseInt(tab[i]));
                 }
             }
+            reader.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
     //wyświetla wszystkie elementy
@@ -61,7 +63,7 @@ public class ToQuickSort {
     }
 
     //Może trochę przekombinowane, ale dobrze czasami sobie coś przypomnieć, w tym przypadku mapy
-    public int findMedianOfThreeElements(int left, int right) {
+    private int findMedianOfThreeElements(int left, int right) {
         HashMap<Integer, Integer> newMap = new HashMap<Integer, Integer>();
         ArrayList<Integer> newList = new ArrayList<Integer>();
 
@@ -94,7 +96,7 @@ public class ToQuickSort {
     }
 
     //rozpatruje wybranie indexu pivota na podstawie trzech wersji, zwraca jego index
-    public int selectPivot(int left, int right, int version) {
+    private int selectPivot(int left, int right, int version) {
         int index0fPivot;
         switch (version) {
 
@@ -167,7 +169,7 @@ public class ToQuickSort {
     }
 
     //główna metoda na quick sort
-    public void quickSort(int left, int right, int version) {
+    private void quickSort(int left, int right, int version) {
 
         //kończy wykonywanie metody w momencie kiedy pivot będzie porównywany z samym sobą
         if (left >= right) return;
