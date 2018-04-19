@@ -110,7 +110,6 @@ public class TESTER {
         System.out.println("P2 - losowy element z zadanego przedziału");
         System.out.println("P3 - mediana trzech elementów należących do zadanego przedziału (pierwszy, środkowy, ostatni)");
 
-
         System.out.println("\n");
 
         System.out.printf("%-15s %10s %10s %10s %10s\n", "Nazwa pliku ", "Liczebność", "Pivot", "LZM", " MWS");

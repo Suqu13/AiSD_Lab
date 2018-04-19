@@ -157,14 +157,25 @@ public class ToQuickSort {
 
             border = partition(left, right, version);
 
-            stack.push(border - 1);
-            stack.push(left);
+            if (Math.abs((border - 1) - left) >= Math.abs(right - (border + 1))) {
 
-            stack.push(right);
-            stack.push(border + 1);
-            maximumStackHeight = stack.maximumStackHeight();
+                stack.push(border - 1);
+                stack.push(left);
 
+                stack.push(right);
+                stack.push(border + 1);
+                maximumStackHeight = stack.maximumStackHeight();
 
+            } else {
+
+                stack.push(right);
+                stack.push(border + 1);
+
+                stack.push(border - 1);
+                stack.push(left);
+                maximumStackHeight = stack.maximumStackHeight();
+
+            }
 
         }
     }
@@ -173,7 +184,7 @@ public class ToQuickSort {
         if (version == 1) return "P1";
         if (version == 2) return "P2";
         if (version == 3) return "P3";
-            return null;
+        return null;
     }
 
     public double showMediana() {
