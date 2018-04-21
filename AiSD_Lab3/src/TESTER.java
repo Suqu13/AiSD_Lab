@@ -5,8 +5,6 @@ import java.util.Calendar;
 public class TESTER {
     public static void main(String[] args) throws EmptyStackException {
 
-        System.out.println("\n");
-
         ArrayList<ToQuickSort> list = new ArrayList<>();
 
         ToQuickSort dane_11_P1 = new ToQuickSort("z3data11.csv");
@@ -99,6 +97,7 @@ public class TESTER {
         dane_33_P3.quickSort(3);
         list.add(dane_33_P3);
 
+        System.out.println("");
 
         System.out.println("LZM - całkowita liczba zamian miejscami");
         System.out.println("MWS - maksymalna liczebność stosu");
@@ -108,7 +107,7 @@ public class TESTER {
         System.out.println("P2 - losowy element z zadanego przedziału");
         System.out.println("P3 - mediana trzech elementów należących do zadanego przedziału (pierwszy, środkowy, ostatni)");
 
-        System.out.println("\n");
+        System.out.println(" ");
 
         System.out.printf("%-15s %10s %10s %10s %10s\n", "Nazwa pliku ", "Liczebność", "Pivot", "LZM", " MWS");
         String name = "name";

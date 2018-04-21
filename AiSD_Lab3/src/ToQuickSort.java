@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class ToQuickSort {
@@ -59,30 +58,31 @@ public class ToQuickSort {
 
     private int medianOfThreeElements(int left, int right) {
 
-        HashMap<Integer, Integer> newMap = new HashMap<Integer, Integer>();
-        ArrayList<Integer> newList = new ArrayList<Integer>();
+        int middle = (int) Math.floor((left + (right - left)) / 2);
+        int median = right;
 
-        newList.add(elements.get(left));
-        newList.add(elements.get((int) Math.floor((left + (right - left)) / 2)));
-        newList.add(elements.get(right));
-
-        newMap.put(elements.get(left), left);
-        newMap.put(elements.get((int) Math.floor((left + (right - left)) / 2)), (int) Math.floor((left + (right - left)) / 2));
-        newMap.put(elements.get(right), right);
-
-        boolean t = true;
-        while (t) {
-            t = false;
-            for (int i = 0; i < newList.size() - 1; i++) {
-                if (newList.get(i) > newList.get(i + 1)) {
-                    Collections.swap(newList, i, i + 1);
-                    t = true;
-                }
+        if (elements.get(left) <= elements.get(right) && elements.get(middle) <= elements.get(right)) {
+            if (elements.get(left) <= elements.get(middle)) {
+                median = middle;
+            } else {
+                median = left;
+            }
+        } else if (elements.get(left) <= elements.get(middle) && elements.get(right) <= elements.get(median)) {
+            if (elements.get(left) <= elements.get(right)) {
+                median = right;
+            } else {
+                median = left;
+            }
+        } else {
+            if (elements.get(middle) <= elements.get(right)) {
+                median = right;
+            } else {
+                median = middle;
             }
         }
 
+        return median;
 
-        return newMap.get(newList.get(1));
     }
 
     private void selectPivot(int left, int right, int version) {
