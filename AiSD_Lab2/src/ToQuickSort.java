@@ -3,7 +3,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -35,6 +34,7 @@ public class ToQuickSort {
 
     //wyświetla wszystkie elementy
     public void show() {
+
         for (Integer i : elements) {
             System.out.print(" " + i + " ");
         }
@@ -62,37 +62,42 @@ public class ToQuickSort {
 
     }
 
-    //Może trochę przekombinowane, ale dobrze czasami sobie coś przypomnieć, w tym przypadku mapy
     private int findMedianOfThreeElements(int left, int right) {
-        HashMap<Integer, Integer> newMap = new HashMap<Integer, Integer>();
-        ArrayList<Integer> newList = new ArrayList<Integer>();
+        ArrayList<Integer> list = new ArrayList<>();
+        int middle = (int) Math.floor((left + (right - left)) / 2);
+        int median;
 
-        newList.add(elements.get(left));
-        newList.add(elements.get((int) Math.floor((left + (right - left)) / 2)));
-        newList.add(elements.get(right));
+        list.add(elements.get(left));
+        list.add(elements.get(middle));
+        list.add(elements.get(right));
 
-        newMap.put(elements.get(left), left);
-        newMap.put(elements.get((int) Math.floor((left + (right - left)) / 2)), (int) Math.floor((left + (right - left)) / 2));
-        newMap.put(elements.get(right), right);
-
-        // lista newList jest sortowana za pomocą bubbleSort, mediana 3 elementów ustawi się na srodku listy
-        boolean t = true;
-        while (t) {
-            t = false;
-            for (int i = 0; i < newList.size() - 1; i++) {
-                if (newList.get(i) > newList.get(i + 1)) {
-                    Collections.swap(newList, i, i + 1);
-                    t = true;
-                }
+        int min = Integer.MAX_VALUE;
+        for (int p : list) {
+            if (p < min) {
+                min = p;
             }
         }
 
-        /*
-        korzystamy z właśności mapy, która jako klucze przyjmuje wartości
-        elementów z pierwotenj listy podanej w argumentach metody i zwracamy value, czyli te indeksy
-        */
+        list.remove((Object) min);
 
-        return newMap.get(newList.get(1));
+        int max = Integer.MIN_VALUE;
+        for (int p : list) {
+            if (p > max) {
+                max = p;
+            }
+        }
+
+        list.remove((Object) max);
+
+        if (elements.get(left) == list.get(0)) {
+            median = left;
+        } else if (elements.get(right) == list.get(0)) {
+            median = right;
+        } else {
+            median = middle;
+        }
+
+        return median;
     }
 
     //rozpatruje wybranie indexu pivota na podstawie trzech wersji, zwraca jego index
