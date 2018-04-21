@@ -11,8 +11,6 @@ public class ToQuickSort {
 
     private ArrayList<Integer> elements;
 
-
-    //konstruktor wczytuje dane z pliku do listy
     public ToQuickSort(String nameOfTheFile) {
         elements = new ArrayList<Integer>();
         String tab[];
