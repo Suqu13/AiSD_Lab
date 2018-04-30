@@ -39,29 +39,36 @@ public class TESTER {
         Heap maxHeap = new MaxHeap();
         Heap minHeap = new MinHeap();
 
+        System.out.println("\nNumbers: list1");
         for (int l : list1) {
             System.out.print(l + " ");
         }
 
-        System.out.println("\n");
+        System.out.println("");
         System.out.println("\nMaxHeap- heapify");
         maxHeap.heapify(list1);
         maxHeap.show();
 
         //Usuwa losowe elementy z kopca
-        System.out.println("\n");
+        System.out.println("");
         System.out.println("\nMaxHeap- removed");
         maxHeap.remove(list1.get((int) (Math.random()*19)));
         maxHeap.remove(list1.get((int) (Math.random()*18)));
         maxHeap.show();
 
         System.out.println("\n");
+        System.out.println("\nNumbers: list2");
+        for (int l : list2) {
+            System.out.print(l + " ");
+        }
+
+        System.out.println("");
         System.out.println("\nMinHeap- heapify");
         minHeap.heapify(list2);
         minHeap.show();
 
         //Usuwa losowe elementy z kopca
-        System.out.println("\n");
+        System.out.println("");
         System.out.println("\nMinHeap- removed");
         minHeap.remove(list2.get((int) (Math.random()*19)));
         minHeap.remove(list2.get((int) (Math.random()*18)));

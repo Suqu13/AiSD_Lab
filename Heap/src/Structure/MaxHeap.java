@@ -13,10 +13,11 @@ public class MaxHeap extends Heap {
     }
 
     @Override
-    public void heapify(ArrayList<Integer> list) {
-        this.list = list;
+    public void heapify(ArrayList<Integer> list_) {
+        for (Integer i : list_) {
+            list.add(i);
+        }
         fix();
-
     }
 
     @Override
