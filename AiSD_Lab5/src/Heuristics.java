@@ -4,7 +4,8 @@ import java.io.FileReader;
 import java.util.*;
 
 public class Heuristics {
-    private HashMap<Integer, Character> rooms;
+
+    private HashMap<Integer, Character> fileCabinets;
     private int[][] matrixOfRelationships;
     private List<ArrayList<Integer>> population = new ArrayList<>();
     private List<ArrayList<Integer>> newPopulation = new ArrayList<>();
@@ -16,7 +17,7 @@ public class Heuristics {
     zawierają zmienne oznaczające nasze pokoje np. 1- pokój 'a', 2- pokój 'b' itd. Reszta to informacje o
     częstotliwości poruszania.
      */
-    public Heuristics(String fileName, int numberOfSpecimens) {
+    public Heuristics(String fileName) {
 
         String line;
         String tab[];
@@ -42,7 +43,6 @@ public class Heuristics {
                 }
                 index_j++;
             }
-            generatePopulation(numberOfSpecimens);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -66,16 +66,18 @@ public class Heuristics {
             population.add(specimen);
             i++;
         }
+        sort();
+        averageGoalFunctionValue();
     }
 
     /*
     Generuje hashmap w której key wartość numeryczna, a value watość typu char np. key 1 - value 'a'
      */
-    private void generateNameOfRooms() {
-        rooms = new HashMap<>();
+    private void generateNameOfFileCabinet() {
+        fileCabinets = new HashMap<>();
         char nameOfRoom = 'a';
         for (int i = 1; i <= matrixOfRelationships.length - 1; i++) {
-            rooms.put(i, nameOfRoom);
+            fileCabinets.put(i, nameOfRoom);
             nameOfRoom++;
         }
     }
@@ -85,8 +87,23 @@ public class Heuristics {
     Metoda licząca fukncję celu
      */
     private int goalFunction(ArrayList<Integer> specimen) {
+        int i = 0;
+        int value = 0;
+        int indexA = 1;
+        int indexB;
+        while (i <= specimen.size()) {
+            if ( i == specimen.size()) {
+                indexB = 1;
+            } else {
+                indexB = specimen.get(i);
+            }
+                value += Math.abs(indexB - indexA) * matrixOfRelationships[indexA][indexB];
+                indexA = indexB;
+                i++;
 
-        return 0;
+        }
+
+        return value;
     }
 
     /*
@@ -97,7 +114,7 @@ public class Heuristics {
         for (ArrayList<Integer> specimen : population) {
             value += goalFunction(specimen);
         }
-        averageGoalFunctionValue = value/ population.size();
+        averageGoalFunctionValue = value / population.size();
     }
 
     /*
@@ -206,22 +223,29 @@ public class Heuristics {
     public void showNamesOfRooms() {
         System.out.println("");
         for (int i = 1; i <= matrixOfRelationships.length - 1; i++) {
-            System.out.println(" " + i + " " + rooms.get(i) + " ");
+            System.out.println(" " + i + " " + fileCabinets.get(i) + " ");
         }
         System.out.println("");
     }
 
     public void results() {
-        generateNameOfRooms();
+        generateNameOfFileCabinet();
         System.out.println("\nFINALNE WYNIKI\n");
-        ArrayList<Character> finalRooms = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
+        ArrayList<Character> finalFileCabinetS = new ArrayList<>();
+        for (int i = 0; i < 20; i++) {
             for (Integer room : population.get(i)) {
-                finalRooms.add(rooms.get(room));
+                finalFileCabinetS.add(fileCabinets.get(room));
             }
-            System.out.println(Arrays.toString(finalRooms.toArray()) + "  Wartość funkcji celu: " + goalFunction(population.get(i)));
-            finalRooms.clear();
+            System.out.println(Arrays.toString(finalFileCabinetS.toArray()) + "  Wartość funkcji celu: " + goalFunction(population.get(i)));
+            finalFileCabinetS.clear();
         }
+    }
+
+    public void algorithm(int numberOfSpecimens, double percent) {
+        generatePopulation(numberOfSpecimens);
+        generateNewPopulation(percent);
+        results();
+
     }
 }
 

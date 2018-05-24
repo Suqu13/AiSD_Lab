@@ -13,6 +13,13 @@
       <change beforePath="$PROJECT_DIR$/../AiSD_Lab4/out/production/AiSD_Lab4/World.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AiSD_Lab4/out/production/AiSD_Lab4/World.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AiSD_Lab4/src/TETSTER.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AiSD_Lab4/src/TETSTER.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AiSD_Lab4/src/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AiSD_Lab4/src/World.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AiSD_Lab5/Heuristics$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AiSD_Lab5/Heuristics$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AiSD_Lab5/Heuristics.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AiSD_Lab5/Heuristics.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Heuristics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Heuristics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TESTER.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TESTER.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../BinarySearch/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BinarySearch/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Heap/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Heap/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MergeSort/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MergeSort/.idea/workspace.xml" afterDir="false" />
@@ -27,11 +34,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Heuristics.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Heuristics.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Heuristics.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2395">
-              <caret line="221" column="95" selection-start-line="221" selection-start-column="95" selection-end-line="221" selection-end-column="95" />
+            <state relative-caret-position="2925">
+              <caret line="234" column="30" selection-start-line="234" selection-start-column="30" selection-end-line="234" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -39,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TESTER.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TESTER.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/TESTER.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="3" column="32" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
+              <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -64,8 +71,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/Population.java" />
-        <option value="$PROJECT_DIR$/src/TESTER.java" />
         <option value="$PROJECT_DIR$/src/Heuristics.java" />
+        <option value="$PROJECT_DIR$/src/TESTER.java" />
       </list>
     </option>
   </component>
@@ -76,9 +83,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="950" />
-    <option name="width" value="980" />
-    <option name="height" value="1040" />
+    <option name="x" value="-8" />
+    <option name="width" value="977" />
+    <option name="height" value="523" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -174,11 +181,13 @@
       <workItem from="1526885267837" duration="18000" />
       <workItem from="1527100010021" duration="11537000" />
       <workItem from="1527150796084" duration="11657000" />
+      <workItem from="1527176568899" duration="433000" />
+      <workItem from="1527192497778" duration="3040000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24508000" />
+    <option name="totallyTimeSpent" value="27981000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -193,7 +202,7 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.0" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.42022792" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -225,6 +234,40 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Heuristics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" column="21" lean-forward="true" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TESTER.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="32" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Heuristics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3315">
+          <caret line="221" column="95" selection-start-line="221" selection-start-column="95" selection-end-line="221" selection-end-column="95" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TESTER.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="32" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Heuristics.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1575">
@@ -266,20 +309,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TESTER.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="32" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Heuristics.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2395">
-          <caret line="221" column="95" selection-start-line="221" selection-start-column="95" selection-end-line="221" selection-end-column="95" />
+        <state relative-caret-position="2925">
+          <caret line="234" column="30" selection-start-line="234" selection-start-column="30" selection-end-line="234" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TESTER.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
         </state>
       </provider>
     </entry>
