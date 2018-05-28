@@ -54,7 +54,7 @@ public class TESTER_V2 {
             population.runAlgorithm(percentValue, sizeOfPopulation);
             population.results(x, data.getNamesOfCabinets());
 
-            System.out.print("\nPOWTÓRZYĆ SYMULACJE (T/N): ");
+            System.out.print("\nPOWTÓRZYĆ SYMULACJE (T/N): \n");
             yesOrNot = sc.next().charAt(0);
         }
 

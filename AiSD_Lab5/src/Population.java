@@ -4,6 +4,7 @@ public class Population {
     private List<ArrayList<Integer>> randomPopulation;
     private int[][] matrixOfConnections;
 
+
     public Population(int[][] matrixOfConnections) {
         this.matrixOfConnections = matrixOfConnections;
         randomPopulation = new ArrayList<>();
@@ -18,8 +19,8 @@ public class Population {
 
             specimen = new ArrayList<>();
             while (specimen.size() < matrixOfConnections.length) {
-                Random rarandom = new Random();
-                int newCabinet = rarandom.nextInt(matrixOfConnections.length);
+                Random random = new Random();
+                int newCabinet = random.nextInt(matrixOfConnections.length);
                 if (!specimen.contains(newCabinet)) {
                     specimen.add(newCabinet);
                 }
@@ -60,22 +61,20 @@ public class Population {
 
     private ArrayList<ArrayList<Integer>> generateNewGenerationOfPopulation(double percent) {
         ArrayList<ArrayList<Integer>> newPopulation = new ArrayList<>();
-
+        int oldSize = randomPopulation.size();
         int averageGoalFunctionValue = averageGoalFunctionValue();
-        int sizeWithoutTheWorst = (int) (randomPopulation.size() - (randomPopulation.size() * percent));
+        int sizeWithoutTheWorst = (int) (oldSize - (oldSize * percent));
 
         Iterator<ArrayList<Integer>> iterator = randomPopulation.iterator();
-        while (iterator.hasNext()) {
-            ArrayList<Integer> specimen = iterator.next();
-            int cloningFactor = Math.round((averageGoalFunctionValue / goalFunction(specimen)));
 
-            while (cloningFactor > 0) {
-                if (newPopulation.size() >= sizeWithoutTheWorst) {
-                    break;
-                } else {
-                    newPopulation.add(mutate(specimen));
-                    cloningFactor--;
-                }
+        while (iterator.hasNext() && newPopulation.size() < sizeWithoutTheWorst) {
+
+            ArrayList<Integer> specimen = iterator.next();
+            int cloningFactor = Math.round(2 * (averageGoalFunctionValue / goalFunction(specimen)));
+
+            while (cloningFactor > 0 && newPopulation.size() < sizeWithoutTheWorst ){
+                newPopulation.add(mutate(specimen));
+                cloningFactor--;
             }
         }
         return newPopulation;
