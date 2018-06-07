@@ -12,6 +12,10 @@ public class Data {
         namesOfCabinets = new HashMap<>();
     }
 
+
+    /*
+    Metoda odpowiedzialna za wczytanie pliku z danymi
+     */
     public void loadData(String fileName) {
         String line;
         String tab[];
@@ -38,11 +42,14 @@ public class Data {
         }
     }
 
+    /*
+    generowanie powiązania integer - character dla szuflad
+     */
     private void generateNameOfCabinet() {
-        char nameOfRoom = 'a';
-        for (int i = 0; i <= matrixOfConnections.length - 1; i++) {
-            namesOfCabinets.put(i, nameOfRoom);
-            nameOfRoom++;
+        char nameOfCabinet = 'a';
+        for (int i = 0; i < matrixOfConnections.length; i++) {
+            namesOfCabinets.put(i, nameOfCabinet);
+            nameOfCabinet++;
         }
     }
 
