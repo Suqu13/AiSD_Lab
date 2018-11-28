@@ -2,16 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="414ce278-e245-4030-9016-3dadfc91db3f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AiSD_Lab2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AiSD_Lab2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AiSD_Lab2/out/production/AiSD_Lab2/ToQuickSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AiSD_Lab2/out/production/AiSD_Lab2/ToQuickSort.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AiSD_Lab2/src/ToQuickSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AiSD_Lab2/src/ToQuickSort.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AiSD_Lab3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AiSD_Lab3/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AiSD_Lab3/out/production/AiSD_Lab3/TESTER.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AiSD_Lab3/out/production/AiSD_Lab3/TESTER.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AiSD_Lab3/out/production/AiSD_Lab3/ToQuickSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AiSD_Lab3/out/production/AiSD_Lab3/ToQuickSort.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AiSD_Lab3/src/TESTER.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AiSD_Lab3/src/TESTER.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AiSD_Lab3/src/ToQuickSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AiSD_Lab3/src/ToQuickSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LinkedList/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LinkedList/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AiSD_Lab4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AiSD_Lab4/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AiSD_Lab4/out/production/AiSD_Lab4/TETSTER.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AiSD_Lab4/out/production/AiSD_Lab4/TETSTER.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AiSD_Lab4/out/production/AiSD_Lab4/World$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AiSD_Lab4/out/production/AiSD_Lab4/World$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AiSD_Lab4/out/production/AiSD_Lab4/World$Route.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AiSD_Lab4/out/production/AiSD_Lab4/World$Route.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AiSD_Lab4/out/production/AiSD_Lab4/World.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AiSD_Lab4/out/production/AiSD_Lab4/World.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AiSD_Lab4/src/TETSTER.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AiSD_Lab4/src/TETSTER.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AiSD_Lab4/src/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AiSD_Lab4/src/World.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AiSD_Lab5/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AiSD_Lab5/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AiSD_Lab5/out/production/AiSD_Lab5/Population.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AiSD_Lab5/out/production/AiSD_Lab5/Population.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AiSD_Lab5/out/production/AiSD_Lab5/Tester_v3.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AiSD_Lab5/out/production/AiSD_Lab5/Tester_v3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AiSD_Lab5/src/Population.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AiSD_Lab5/src/Population.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AiSD_Lab5/src/Tester_v3.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AiSD_Lab5/src/Tester_v3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BinarySearch/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BinarySearch/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HashTable/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../HashTable/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Heap/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Heap/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MergeSort/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MergeSort/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,7 +32,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -63,6 +73,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -79,16 +90,15 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.runner" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.runner" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -208,18 +218,18 @@
       <workItem from="1523391740397" duration="111000" />
       <workItem from="1523391877098" duration="11000" />
       <workItem from="1524117114503" duration="21000" />
+      <workItem from="1539783568595" duration="7000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20772000" />
+    <option name="totallyTimeSpent" value="20779000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.3295325" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
@@ -231,7 +241,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16577181" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16778524" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -245,6 +255,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.3295325" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">

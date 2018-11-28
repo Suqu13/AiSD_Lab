@@ -40,7 +40,7 @@ public class Population {
     /*
     Generuje nową populacje na podstawie najleprzych osobników ze starej po odrzuceniu "ogona",
     kolejno generują się osobniki losowe tak aby osiągnąć pierwotną liczebność. Bezpośrednim
-    wskaźnikiem liczby klonów jest stosunek funkcji celu osobnika do mediany dla całej populacji
+    wskaźnikiem liczby klonów jest podwojony stosunek funkcji celu osobnika do mediany dla całej populacji
     lub jej stosunek dla średniej wartości dla całej populacji. Ten parametr wybiera użytkownik
      */
     private ArrayList<Specimen> generateNewGenerationOfPopulation(double percent, char version) {
@@ -71,12 +71,12 @@ public class Population {
         int cloningFactor;
         switch (version) {
             default:
-                cloningFactor = Math.round((averageGoalFunctionValue / specimen.goalFunction()));
+                cloningFactor = 2 * Math.round((averageGoalFunctionValue / specimen.goalFunction()));
                 break;
 
             case ('m'):
                 int value = randomPopulation.get(randomPopulation.size() / 2).goalFunction();
-                cloningFactor = Math.round(value / specimen.goalFunction());
+                cloningFactor = 2 * Math.round(value / specimen.goalFunction());
                 break;
         }
         return cloningFactor;
@@ -88,7 +88,7 @@ public class Population {
     public void runAlgorithm(double percent, int size, char version) {
         int i = 0;
         generateRandomPopulation(size);
-        while (i < 5) {
+        while (i < 10) {
             randomPopulation = generateNewGenerationOfPopulation(percent, version);
             generateRandomPopulation(size);
             i++;

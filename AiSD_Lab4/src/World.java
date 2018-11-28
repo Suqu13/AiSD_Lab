@@ -22,6 +22,15 @@ public class World {
     private HashMap<String, Integer> connectionWithSelidor;
     private HashMap<String, Integer> connectionWithHavnor;
 
+
+    /*
+    W konstruktorze zostają stworzone HashMapy, dla każdego miasta jedna. Przechowywują nazwę miasta (klucz)
+    i odległość od miasta pierwotnego (value). Następuje zagnieżdzenie. Tworzę kolejną mapę, która zawiera
+    nazwę miasta (key), mapę przedstawiająco możliwe bezpośrednie połączenia (value). Tworzę listę, która
+    zawiera nazwy wszystkich miast. Będzie to zabezpieczenie przed dublowaniem odwiedzonych przystanków w
+    momencie gdy następuje wyszukiwanie.
+     */
+
     public World() {
 
         connectionWithBree = new HashMap<>();
@@ -105,7 +114,7 @@ public class World {
         connectionWithLuistania.put("Bree", 630);
         connectionWithLuistania.put("Rivendell", 790);
 
-        //Drugi trzeci
+        //Trzeci dystrykt
 
         connectionWithAntuan.put("Gont", 685);
         connectionWithAntuan.put("Roke", 512);
@@ -158,6 +167,15 @@ public class World {
 
     }
 
+    public List<String> getNameOfCities() {
+        return nameOfCities;
+    }
+
+
+    /*
+    Konstryktor pierwszy- tworzy nowy obiekt Route
+    Konstruktor drugi- tworzy nowy obiekt Route, który jest kopią już istniejącego
+     */
     private class Route {
 
         private int numberOfStations;
@@ -204,61 +222,103 @@ public class World {
         }
     }
 
-    public void findRoute(String startOfRoute, String endOfRoute) {
 
-        if (!nameOfCities.contains(startOfRoute) || !nameOfCities.contains(endOfRoute)) {
-            System.out.println("\nBŁĘDNE DANE!");
-            return;
-        }
+    /*
+    Metoda, która wywołuje metodę rekurencyjną find(), pozwala wybrać sposób sortowania otrzymanych wyników i
+    ilość finalnych wydruków.
+     */
+
+    public void findRoute(String startOfRoute, String endOfRoute, int size, char version) {
+
         Route route = new Route();
         find(startOfRoute, endOfRoute, route);
 
-
-        Collections.sort(results, new Comparator<Route>() {
-
-                    @Override
-                    public int compare(Route o1, Route o2) {
-                        if (o1.getDistance() > o2.getDistance()) {
-                            return 1;
-                        } else if (o1.getDistance() < o2.getDistance()) {
-                            return -1;
-                        } else {
-                            return 0;
-                        }
+        if (version == 'P') {
+            Collections.sort(results, new Comparator<Route>() {
+                @Override
+                public int compare(Route o1, Route o2) {
+                    if (o1.getNumberOfStations() > o2.getNumberOfStations()) {
+                        return 1;
+                    } else if (o1.getNumberOfStations() < o2.getNumberOfStations()) {
+                        return -1;
+                    } else {
+                        return 0;
                     }
                 }
-        );
+            });
+        } else {
+            Collections.sort(results, new Comparator<Route>() {
+                @Override
+                public int compare(Route o1, Route o2) {
+                    if (o1.getDistance() > o2.getDistance()) {
+                        return 1;
+                    } else if (o1.getDistance() < o2.getDistance()) {
+                        return -1;
+                    } else {
+                        return 0;
+                    }
+                }
+            });
+        }
 
         System.out.println("\nMożliwe trasy przejazdu:\n ");
 
+        if (results.size() < size)
 
-        for (Route result : results) {
-            System.out.print("Trasa: ");
-            for (int i = 0; i < result.getStations().size(); i++) {
-                if (i < result.getStations().size() - 1) {
-                    System.out.print(result.getStations().get(i) + " >> ");
+        {
+            size = results.size();
+        }
+
+        System.out.printf("%-20s %-20s %-20s \n", "DŁUGOŚĆ TRASY", "LICZBA PRZESIADEK", "STACJE");
+        for (
+                int i = 0;
+                i < size; i++)
+
+        {
+            System.out.printf("%-21s", results.get(i).getDistance() + " km");
+            System.out.printf("%-21s", results.get(i).getNumberOfStations());
+
+            for (int j = 0; j < results.get(i).getStations().size(); j++) {
+                if (j < results.get(i).getStations().size() - 1) {
+                    System.out.print(results.get(i).getStations().get(j) + " >> ");
                 } else {
-                    System.out.print(result.getStations().get(i) + " ");
+                    System.out.print(results.get(i).getStations().get(j));
                 }
-            }
 
-            System.out.println(" ");
-            System.out.println("Dlugość trasy: " + result.getDistance());
-            System.out.println("Liczba przesiadek: " + result.getNumberOfStations());
+            }
             System.out.println(" ");
         }
+        results.clear();
     }
+
+
+    /*
+    Rekurencyjna metoda wyszukiwania wszelkich możliwych połączeń. Warunkiem kończącym wyszukiwanie dla danego obiektu jest
+    znalezienie punktu docelowego i powtarzanie się wszystkich miast na trasie przejazdu.
+     */
 
     private void find(String startOfRoute, String endOfRoute, Route route) {
         route.addStation(startOfRoute);
+
+        /*
+        Jeśli miasta posiadają bezpośrednie połączenie to Route zostaje dodana do listy wyników, dla tego
+        obiektu wyszukiwanie zostaje zakończone
+         */
 
         if (cities.get(startOfRoute).get(endOfRoute) != null) {
             route.addStation(endOfRoute);
             route.setDistance(route.getDistance() + cities.get(startOfRoute).get(endOfRoute));
             results.add(route);
-        }
 
-        if (cities.get(startOfRoute).get(endOfRoute) == null) {
+            /*
+            W innym wypadku zostaje sprawdzone czy dane miasto nie znajduję się na liście już odwiedzonych miast.
+            Zostaje wyeliminowana sytuacja powtarzania się punktów na trasie.
+            Następuje sprawdzenie bezpośrednich połączeń bierzącego miasta. Jeśli takie istnieje to miastem nad którym
+            pracujemy obecnie zostaje nowo znalezione. Odległość jest sumowana ze starą wartością, nazwa miasta
+            dodana do listy przystamków
+             */
+
+        } else {
             for (String nameOfCity : nameOfCities) {
                 if ((!route.getStations().contains(nameOfCity)) && (cities.get(startOfRoute).get(nameOfCity) != null)) {
                     Route newRoute = new Route(route);

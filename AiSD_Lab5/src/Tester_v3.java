@@ -37,7 +37,7 @@ public class Tester_v3 {
             }
         }
 
-        System.out.print("\ns - stosunek wartości funkcji celu okazu celu do jej średniej wartości dla populacji \nm - stosunek wartości funkcji celu okazu do jej mediany dla populacji \nPODAJ SPOSÓB DOBORU WSPÓŁCZYNNIKA KLONOWANIA: ");
+        System.out.print("\ns - stosunek wartości funkcji celu okazu do jej średniej wartości dla populacji \nm - stosunek wartości funkcji celu okazu do jej mediany dla populacji \nPODAJ SPOSÓB DOBORU WSPÓŁCZYNNIKA KLONOWANIA: ");
         char version = sc.next().charAt(0);
 
         int x = sizeOfPopulation +1;

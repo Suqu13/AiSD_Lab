@@ -56,6 +56,10 @@ public class ToQuickSort {
         System.out.println(" ");
     }
 
+
+    /*metoda znajdująca mediane na posdstawie trzech elementów, zwraca jej indeks
+    działa na zasaidzie porównań*/
+
     private int medianOfThreeElements(int left, int right) {
 
         int middle = (int) Math.floor((left + (right - left)) / 2);
@@ -85,6 +89,8 @@ public class ToQuickSort {
 
     }
 
+    /*metoda pozwapająca na określenie pivota w wybrany przez nas sposób*/
+
     private void selectPivot(int left, int right, int version) {
         int futurePivotIndex = 0;
         switch (version) {
@@ -102,9 +108,11 @@ public class ToQuickSort {
                 futurePivotIndex = medianOfThreeElements(left, right);
                 break;
         }
-
         Collections.swap(elements, futurePivotIndex, right);
     }
+
+    /*metoda partycjonująca, która dodatkowo inkrementuje nam zmeinną odpowiadającą
+    za zliczanie zamian miejscami, w chwili gdy to następuje*/
 
     private int partition(int left, int right, int version) {
 
@@ -131,6 +139,8 @@ public class ToQuickSort {
         return border;
     }
 
+    /*metoda główna dla algorytmu, to tu następuje praca na stosie i
+    określanie jego największej wysokości*/
 
     public void quickSort(int version) throws EmptyStackException {
 
@@ -149,19 +159,16 @@ public class ToQuickSort {
             left = stack.pop();
             right = stack.pop();
 
-            /*
-            "continue" pilnuje sytuacji, gdy pivot jest porównywany z
-            samym sobą, wtedy nie wykonuje pętli dla tej iteracji
-             */
+            /*"continue" pilnuje sytuacji, gdy pivot jest porównywany z
+             samym sobą, wtedy nie wykonuje pętli dla tej iteracji*/
 
             if (right <= left) continue;
 
             border = partition(left, right, version);
 
 
-            /*
-            Optymalizacja, węższy przedział pierwszy rozpatrywany
-            */
+            /*Optymalizacja, węższy przedział rozpatrywany pierwszy */
+
             if (Math.abs((border - 1) - left) >= Math.abs(right - (border + 1))) {
 
                 stack.push(border - 1);
@@ -181,26 +188,16 @@ public class ToQuickSort {
                 maximumStackHeight = stack.maximumStackHeight();
 
             }
-
         }
     }
+
+    /*metoda służoca do wydruku sposobu w jaki pivot był wybierany*/
 
     public String showTheSelectedVersion() {
         if (version == 1) return "P1";
         if (version == 2) return "P2";
         if (version == 3) return "P3";
         return null;
-    }
-
-    public double showMediana() {
-        int n = elements.size() - 1;
-        if (elements.size() % 2 == 0) {
-            int m = (int) Math.floor(n / 2);
-            double b = ((elements.get(m) + elements.get(m + 1)));
-            return (b / 2);
-        } else {
-            return elements.get(n / 2);
-        }
     }
 
 }
